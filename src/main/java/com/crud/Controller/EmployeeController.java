@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.crud.Service.EmployeeService;
 import com.crud.entity.Employee;
+
+import jakarta.validation.Valid;
 @RestController
 public class EmployeeController {
 	@Autowired
 	private EmployeeService  employeeService;
 	
 @PostMapping("/addEmp")
-public Employee addEMplEmployee(@RequestBody Employee employee) {
+public Employee addEMplEmployee( @Valid @RequestBody Employee employee) {
 	return employeeService.addEmployee(employee);		
 }
 
